@@ -1,13 +1,12 @@
 fn main() {
+	// mut and &mut is needed here!
+	let mut s = String::from("hello");
 
-	let s1 = String::from("hello!");
-	let s2 = s1.clone(); // needs to be cloned
-	
-	println!("s1 = {}, s2 = {}", s1, s2);
+	change(&mut s);
 
-	let x = 5;
-	let y = x; // needs NOT to be cloned,because size is known (lives on the stack) at compile time.
+	println!("{}", s);
+}
 
-	println!("x = {}, y = {}", x, y );
-
+fn change(some_string: &mut String) {
+	some_string.push_str(", world!")
 }
